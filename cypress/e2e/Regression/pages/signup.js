@@ -1,5 +1,6 @@
 import { faker } from '@faker-js/faker';
 
+
 export class SignUp{
     //LOCATORs
 
@@ -25,9 +26,11 @@ export class SignUp{
     bTerms_locator= '#default-checkbox2';
     bSignupBtn_locator= '.mt-5';
 
+    createAccountLink_locator= '.mt-30 > .text-warning';
     clickInSpace_locator= '.styles_leftColumn__uuID\+';
 
     //FUNCTIONs
+    //Personal Signup functions
     pFullName(){
         const fakeFullName= faker.person.fullName();
         cy.get(this.fullName_locator)
@@ -55,4 +58,95 @@ export class SignUp{
         cy.get(this.signupBtn_locator)
             .click();
     }
+    //Business Signup functions
+    gotoSignup(){
+        cy.get(this.createAccountLink_locator)
+            .click();
+    }
+    gotoBusiness(){
+        cy.get(this.businessTab_locator)
+        .click();
+    }
+    bFullName(){
+        const fakeeFullName= faker.person.fullName();
+        cy.get(this.bFullName_locator)
+            .type(fakeeFullName);
+    }
+    bEmail(){
+        const fakeeEmail= faker.internet.email();
+        cy.get(this.bEmail_locator)
+            .type(fakeeEmail);
+    }
+    companyName(){
+        const companyName = faker.company.buzzVerb();
+        cy.get(this.bCompanyName_locator)
+            .type(companyName);
+    }
+    position(){
+        const pos = faker.company.buzzPhrase();
+        cy.get(this.bPosition_locator)
+            .type(pos);
+    }
+    // indGroupList() {
+    //     cy.get(this.bIndustryGrp_locator)
+    //       .click({ force: true })
+    //       .then(() => {
+    //         cy.contains('industry')
+    //           .should('be.visible')
+    //           .click();
+    //         cy.wait(2000);
+    //     });
+    // }
+    // indGroupList() {
+    //     cy.viewport(1200, 800); // Adjust the viewport size as needed
+    //     cy.get(this.bIndustryGrp_locator)
+    //       .click({ force: true })
+    //       .then(() => {
+    //         cy.contains('industry')
+    //           .should('be.visible')
+    //           .click({ force: true });
+    //         cy.wait(2000);
+    //       });
+    //   }
+    // indGroupList() {
+    //     cy.get(this.bIndustryGrp_locator)
+    //       .trigger('mousedown', { force: true })
+    //       .then(() => {
+    //         cy.contains('industry')
+    //           .should('be.visible')
+    //           .trigger('mouseup', { force: true}).click();
+    //       });
+    //   }
+    indGroupList() {
+        cy.get(this.bIndustryGrp_locator)
+          .trigger('mousedown', { force: true })
+          .then(() => {
+            cy.contains('industry')
+              .should('be.visible')
+              .invoke('show')
+              .click();
+        });
+    }
+    bPassword(bPwd){
+        cy.get(this.bPwd_locator)
+            .type(bPwd);
+        return bPwd;
+    }
+    bConfirmPwd(bPwd){
+        cy.get(this.bConfirmPwd_locator)
+            .type(bPwd);
+    }
+    salesCheck(){
+        cy.get(this.salesCheck_locator)
+            .check();
+    }
+    checkTerms(){
+        cy.get(this.bTerms_locator)
+            .check();
+    }
+    buttonClickerTwo(){
+        cy.get(this.bSignupBtn_locator)
+            .click();
+    }
+
 }
