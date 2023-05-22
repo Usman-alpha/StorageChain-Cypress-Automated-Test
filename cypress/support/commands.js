@@ -13,5 +13,6 @@ Cypress.Commands.add('login', (email, password) => {
             cy.hold();
             cy.get('.mt-5')
                 .click();
+        cy.wrap({ email, password }).as('loginState');
     });
 });
