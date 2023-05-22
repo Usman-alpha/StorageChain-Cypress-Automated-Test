@@ -9,7 +9,8 @@
   "author": "Usman Malik",
   "license": "ISC",
   "devDependencies": {
-    "cypress": "^12.12.0"
+    "cypress": "^12.12.0",
+    "cypress-metamask": "^1.0.5-development"
   },
   "dependencies": {
     "@faker-js/faker": "^8.0.1",
