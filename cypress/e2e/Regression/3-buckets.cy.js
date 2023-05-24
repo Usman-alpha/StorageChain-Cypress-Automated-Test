@@ -21,4 +21,7 @@ describe('Buckets Regression Test.', () => {
         BucketObj.enterBucketName();
         BucketObj.enterBucket();
     });
+    after(() => {
+        cy.log("Bucket Suite ended.");
+    });
 });

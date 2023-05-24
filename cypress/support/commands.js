@@ -1,4 +1,5 @@
 import 'cypress-metamask';
+import 'cypress-file-upload';
 
 Cypress.Commands.add('hold', ()=>{
     cy.wait(2000);
