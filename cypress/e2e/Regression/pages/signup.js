@@ -43,7 +43,7 @@ export class SignUp{
     }
     pPassword(pwdValue){
         cy.get(this.pwd_locator)
-            .type(pwdValue)
+            .type(pwdValue) 
         return pwdValue;
     }
     pConfirmPassword(pwdValue){

@@ -3,7 +3,7 @@ import { faker } from '@faker-js/faker';
 export class Buckets{
     //LOCATORs
     bucketsOpt_locator= '[href="/buckets"]';
-    newBucketBtn_locator= '.styles_header__SBBlP > button';
+    newBucketBtn_locator= '.styles_header__SBBlP > button'; 
     bucketnameInp_locator= '#name';
     createBucketBtn_locator= '.btn-secondary';
     cancelBucketCreation_locator= '.btn-outline-light';
@@ -14,10 +14,11 @@ export class Buckets{
         cy.get(this.bucketsOpt_locator)
             .click();
         cy.hold();
+        cy.scrollTo('top');
     }
     newBucket(){
         cy.get(this.newBucketBtn_locator)
-        .click();
+        .click({force: true});
     }
     enterBucketName(){
         const randomBucket= faker.string.alphanumeric({ length: 7, casing: 'lower' });

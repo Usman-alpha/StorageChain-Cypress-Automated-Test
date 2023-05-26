@@ -1,5 +1,5 @@
 import { faker } from '@faker-js/faker';
-import {SignUp, Signup} from './pages/signup';
+import {SignUp} from './pages/signup';
 
 const SignupObj= new SignUp();
 describe('Signup regression test.', () => {
