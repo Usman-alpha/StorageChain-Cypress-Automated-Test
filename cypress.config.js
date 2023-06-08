@@ -8,6 +8,9 @@ module.exports = defineConfig({
     "watchForFileChanges": false,
     "exprimentalSessionSupport": true,
     testIsolation: false,
+    "compilerOptions": {
+      "types": ["Cypress"]
+    },
       setupNodeEvents(on, config) {
           // on('file:preprocessor', webpackPreprocessor);
           allureWriter(on, config);

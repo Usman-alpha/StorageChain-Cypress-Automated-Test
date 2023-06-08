@@ -8,5 +8,12 @@ describe('Login regression test.', () => {
             .type('Nabeel@12345');
         cy.get('.align-items-center > .btn-secondary')
             .click();
+        cy.wait(6000);
+    })
+    it('Connect Wallet.', () => {
+        cy.get('.styles_right__TRdkA > .d-flex').click()
+        cy.get(() => {
+            return cy.get('[data-cy="metamask-connected"]').isPresent()
+        })
     })
 });
